@@ -10,8 +10,9 @@ body{
 }
 .card{
     position: relative;
-    width: 300px;
-    height: 170px;
+    width: 90%;
+    max-width: 300px;
+    height: 200px;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -37,7 +38,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin: 10px;
 }
 .soc-icons i{
     font-size: 25px;
@@ -63,6 +64,7 @@ body{
     font-size: 14px;
     color: #858282;
     text-align: center;
+    margin: 5px;
 }
 .subtitle{
     font-size: 16px;
@@ -70,12 +72,125 @@ body{
     font-weight: 600;
 }
 .about-section{
-    padding: 0 25px;
+    padding: 0 20px;
     display: flex;
     flex-direction: column;
-    margin-top: 15px;
+    margin: 10px;
+
+    /* new: center content only inside this block */
+    align-items: center;   /* centers children horizontally inside the flex column */
+    text-align: center;    /* centers inline text */
+    width: 100%;
+    box-sizing: border-box;
+}
+.about-section p{
+    max-width: 280px;     /* 300px card minus 2*20px padding = 260 */
+    margin: 8px 0 0;
+    line-height: 1.45;
+    word-break: normal;
+    overflow-wrap: break-word;
+    hyphens: manual;
 }
 p{
     margin: 5px 0;
     font-weight: 600;
 }
+.lang-switch {
+    color: #858282;
+    border-radius: 5px;
+    border: 1px solid #858282;
+    width: 40px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    position: absolute; 
+    top: 15px;          
+    right: 15px;      
+    display: flex;
+    gap: 8px;
+    z-index: 10; 
+    align-items: center;
+}
+
+.flag-btn {
+    width: 28x;
+    height: 20px;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 3px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.06);
+    transition: transform .08s ease, box-shadow .08s ease;
+}
+
+/* set background images (place SVGs in img/flags/) */
+.flag-en { background-image: url('img/flags/en.svg'); }
+.flag-ua { background-image: url('img/flags/ua.svg'); }
+
+/* emoji fallback if your SVGs are not available */
+.flag-btn:empty::after {
+    content: attr(data-emoji);
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* active / focused styles */
+.flag-btn.active,
+.flag-btn[aria-pressed="true"] {
+    outline: none;
+    box-shadow: none;
+}
+
+.flag-btn:focus {
+    transform: translateY(-1px);
+    outline: none;
+}
+
+/* single flag button */
+.flag-toggle {
+    width: 34px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 3px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    cursor: pointer;
+    display: inline-block;
+    line-height: 0;
+    box-shadow: 0 5px 2px rgba(0,0,0,0.06);
+    transition: transform .08s ease, box-shadow .08s ease;
+    font-size: 0; /* ensure no visible text */
+    color: transparent; /* extra safety */
+}
+
+/* flag images in img/flags/: btn has class flag-en or flag-ua */
+.flag-toggle.flag-en { background-image: url('img/flags/en.svg'); }
+.flag-toggle.flag-ua { background-image: url('img/flags/ua.svg'); }
+
+/* emoji fallback if SVG not found (still not "text" content) */
+.flag-toggle:empty::after {
+    content: attr(data-emoji);
+    display: inline-block;
+    font-size: 16px;
+    line-height: 1;
+}
+
+/* pressed / focus */
+.flag-toggle[aria-pressed="true"] {
+    outline: none;
+    box-shadow: none;
+}
+
+.flag-toggle:focus {
+    outline: none;
+}
+
+

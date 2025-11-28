@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,23 +7,29 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="style.css">
     <link rel="icon" href="img/user.svg">
-    <title>Maks Vorobiov</title>
+    <title data-i18n="title">Maks Vorobiov</title>
 </head>
 <body>
     <div class="card">
+        <!-- language switch fixed to top-right of viewport -->
+        <div class="lang-switch" aria-hidden="false">
+            <button id="langToggle" class="flag-toggle flag-en" data-lang="en" data-emoji="🇬🇧" aria-label="English" type="button" aria-pressed="true"></button>
+        </div>
         <img src="img/image.png" alt="">
-        <span class="name">Maks Vorobiov</span>
-        <span class="description">Avionics/Programmer</span>
+        <span class="name" data-i18n="name">Maks Vorobiov</span>
+        <span class="description" data-i18n="description">Avionics/Programmer</span>
         <div class="soc-icons">
-            <a href="https://github.com/MrSparrow01" class="soc-icon"><i class="bi bi-github"></i></a>
-            <a href="https://www.linkedin.com/in/maksym-vorobiov-006319245/" class="soc-icon"><i class="bi bi-linkedin"></i></a>
-            <a href="https://www.instagram.com/maksym_vorobiov/" class="soc-icon"><i class="bi bi-instagram"></i></a>
-            <a href="https://t.me/maks_vorobiov" class="soc-icon"><i class="bi bi-telegram"></i></a>
-            <a href="tel:+380665677411" class="soc-icon"><i class="bi bi-phone"></i></a>
+            <a href="https://github.com/maksvorobiov" class="soc-icon" aria-label="GitHub"><i class="bi bi-github"></i></a>
+            <a href="https://www.linkedin.com/in/maksym-vorobiov-006319245/" class="soc-icon" aria-label="LinkedIn"><i class="bi bi-linkedin"></i></a>
+            <a href="mailto:maks.vorobiov01@gmail.com" class="soc-icon" aria-label="Instagram"><i class="bi bi-envelope-fill"></i></a>
+            <a href="https://wa.me/qr/KGWYLYFATVFUO1" class="soc-icon" aria-label="Telegram"><i class="bi bi-whatsapp"></i></a>
+            <a href="tel:+380665677411" class="soc-icon" aria-label="Phone"><i class="bi bi-telephone"></i></a>
         </div>
         <div class="about-section">
-            <p>Invictus maneo</p>
+            <p data-i18n="about"></p>
         </div>
-    </div>  
+    </div>
+
+    <script src="js/i18n.js"></script>
 </body>
 </html>
